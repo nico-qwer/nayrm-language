@@ -22,6 +22,8 @@ int countLines(char fileName[]) {
 }
 
 int main(int argc, char* argv[]) {
+
+    //====================== FILE OPENING ======================//
     FILE* sourceCodeStream = fopen(argv[1], "r"); //Open file
 
     if (sourceCodeStream == NULL) { perror("Unable to open file."); return 1; } //Make sure file is valid
@@ -33,6 +35,13 @@ int main(int argc, char* argv[]) {
     while (fgets(sourceCode[i], sizeof(sourceCode[0]), sourceCodeStream)) { i++; }
 
     fclose(sourceCodeStream); //Close file
+
+    //====================== CODE EXECUTION ======================//
+
+    //sizeof(sourceCode) / sizeof(sourceCode[0]) is for getting array lenght
+    for (int i = 0; i < sizeof(sourceCode) / sizeof(sourceCode[0]); i++) {
+
+    }
 
     return 0;
 }
